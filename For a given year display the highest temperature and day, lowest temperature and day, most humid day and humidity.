@@ -1,0 +1,50 @@
+import pandas as pd
+import os
+
+
+folder_path = 'C:\ISDP\Hammad sab\Python\Examples\weatherfiles'
+for filename in os.listdir(folder_path):
+    filepath = os.path.join(folder_path, filename)
+    with open(filepath, 'r') as f:
+        file_contents = f.read()
+
+        # print(file_contents)
+
+
+year = 2005
+
+data_file = file_contents
+
+highest_temp = float('inf')
+highest_temp_day = None
+lowest_temp = float('inf')
+lowest_temp_day = None
+most_humid = -float('inf')
+most_humid_day = None
+
+with open(data_file, 'r') as f:
+    for line in f:
+        date, temp, humidity = line.strip().split(',')
+        year_of_reading = int(date.split('-')[0])
+        if year_of_reading == year:
+            temp = float(temp)
+            humidity = float(humidity)
+            if temp > highest_temp:
+                highest_temp = temp
+                highest_temp_day = date
+            if temp < lowest_temp:
+                lowest_temp = temp
+                lowest_temp_day = date
+            if humidity > most_humid:
+                most_humid = humidity
+                most_humid_day = date
+
+print(f'Highest temperature on day : {highest_temp_day}')
+print(f'Lowest temperature on day : {lowest_temp_day}')
+print(f'Most humid day : {most_humid_day}')
+
+
+
+
+# weather = pd.read_csv('Murree_weather_2004_Aug.txt')
+# print(weather)
