@@ -1,0 +1,13 @@
+import pandas as pd
+df = pd.read_csv(r"C:\ISDP\Hammad sab\Python\Examples\weatherfiles\Murree_weather_2004_Aug.txt")
+tumprachur_list = df['Max TemperatureC']    # all things print
+
+# print(df)
+# for i in x:
+#     print(i)
+
+max_temp = max(tumprachur_list)
+min_temp = min(tumprachur_list)
+
+print("The largest number is:", max_temp)
+print("The lowest  number is:", min_temp)
