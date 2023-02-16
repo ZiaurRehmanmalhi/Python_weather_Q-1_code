@@ -1,0 +1,44 @@
+#weather_app.py file
+
+
+from flask import Flask, render_template
+# from solve_utils_app import waeather_years
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template('index.html')
+
+@app.route("/<int:waeather_years>")
+def surah_by_surah_number(waeather_years):
+    waeather_string = waeather_years(waeather_years)
+
+    return render_template('index.html', waeather_years=waeather_string)
+
+app.run(debug=True)
+
+
+# weather_app.py file close
+
+
+
+
+# utils.py
+import pandas as pd
+
+def read_weather(file_path):
+    df = pd.read.csv(file_path)
+    return df
+
+def waeather_years(year_number):
+    df = read_weather("Murree_weather_2004_Aug.txt")
+    surah_string = " - ".join(df[df.Max_TemperatureC == year_number])
+    return surah_string
+
+
+def weather_months(month_number):
+    df = read_weather("Murree_weather_2004_Aug.txt")
+
+
+
