@@ -1,0 +1,39 @@
+import pandas as pd
+
+df = pd.read_csv(r"C:\ISDP\Hammad sab\Python\weather program\1. Weather Data.csv")
+
+  # ------------ This is the basic logic in dataframe------------
+
+df.head()
+df.shape      # number of rows and column
+df.index
+df.columns  # all columns print kry ga
+df.dtypes  # all columns ki datatype print kry ga
+df['Date/Time'].unique()  # columns ki unique value print kry ga
+df.nunique()  # all columns ke unique number print kry ga
+df.count()  # all columns ke all number print kry ga
+df.value_counts()
+df['Temp_C'].value_counts() # temp ki value print kry ga
+df.info
+
+ # ------------- solving the questions---------------
+
+# df['Temp_C'].values    # all values print kre ga
+# df['Temp_C'].unique()    # all values print kre ga
+# df[df['Weather'] == 'clear']
+# df[df['Wind Speed_km/h'] == 4].count()
+# df.isnull().sum()
+# df['Visibility_km'].mean()
+# df['Press_kPa'].std()
+# df['Rel Hum_%'].var()
+# df[df['Weather'] == 'snow']
+# df.where(df['Weather'] == 'snow')
+# df[(df['Wind Speed_Km/h'] > 24) & (df['Visibility_km'] == 25)]
+# df.groupby(df['Weather']).min()
+# df.groupby(df['Weather']).max()
+# df[((df['Weather'] == 'clear') & (df['Rel Hum_%'] > 50)) | (df['Visibility_km'] > 40)]
+
+x = df[df['Weather'].str.contains('Fog')]
+
+print(x)
+
