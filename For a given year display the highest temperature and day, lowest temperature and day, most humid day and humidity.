@@ -8,10 +8,11 @@ for filename in os.listdir(folder_path):
     with open(filepath, 'r') as f:
         file_contents = f.read()
 
-        # print(file_contents)
+        # print(file_contents)   # print should be all txt files in my folder
 
 
-year = 2005
+year = input("Enter The Year 2004 to 2016 :\n")
+
 
 data_file = file_contents
 
